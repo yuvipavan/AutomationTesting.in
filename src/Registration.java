@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -50,7 +51,7 @@ WebDriver driver;
  		Email.sendKeys(email);
  		//------------------------------------------------------------------------------------
  		WebElement Phone = driver.findElement(By.xpath(".//*[@id='basicBootstrapForm']/div[4]/div/input"));
- 		Phone.sendKeys("8901227475");
+ 		Phone.sendKeys("1301227785");
  		//------------------------------------------------------------------------------------
  	    WebElement Gender = driver.findElement(By.xpath(".//*[@id='basicBootstrapForm']/div[5]/div/label[1]/input"));
  		Gender.click();
@@ -94,6 +95,13 @@ WebDriver driver;
 		WebElement Submit = driver.findElement(By.xpath(".//*[@id='submitbtn']"));
 		Submit.click();
 		
+		
+		//Assert Demo --------------------------------------------------------------------------
+		String UrlVerification = driver.getCurrentUrl();
+		System.out.println(UrlVerification);
+		Assert.assertEquals(UrlVerification, "http://demo.automationtesting.in/Register.html");
+		Assert.assertTrue(UrlVerification.equals("http://demo.automatiotesting.in/Register.html") , "Correct Url");
+	
  		
  	
  		Thread.sleep(5000);
